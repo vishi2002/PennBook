@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PennBook: Holiday Edition</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<style type = "text/css">
+	body {
+    font-family: "Helvetica";
+    background-color: green;
+    }
+    
+    .button-black{
+    width: 100%;
+    font-family: "Optima";
+   	font-weight: 600;
+    background-color: red;
+    color: white;
+}
+
+	.button-signup{
+    width: 100%;
+    font-family: "Optima";
+   	font-weight: 600;
+    background-color: blue;
+    color: white;
+}
+	
+	.large-box { 
+    height: 200px;
+    background-color: blue;
+    }
+
+	.leftSide {
+    height: 100%;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+    }
+
+
+	.main {
+    padding: 15px 25px;
+    background-color: green;
+	}
+	
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .signup-form{
+        margin-top: 15%;
+        
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .leftSide {padding-top: 20px;}
+}
+
+@media screen and (min-width: 750px){
+    .main{
+        margin-left: 55%; 
+    }
+
+    .leftSide{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+    	background-color: green;
+        margin-top: 100%;
+        width: 150%;
+    }
+
+    .signup-form{
+    	background-color: white;
+        margin-top: 20%;
+    }
+}
+
+
+.instructions{
+	font-family: "sans-serif";
+    margin-top: 10%;
+    padding: 50px;
+    color: black;
+    font-weight: 600;
+}
+
+.instructions h2{
+	font-family: "Helvetica";
+	color: red;
+    font-weight: 800;
+}
+
+
+	</style>
+</head>
+<body>
+<div class="leftSide">
+		<div class="instructions">
+			<h2>pennbook: holiday edition</h2>
+			<p>Connect with the community at the University of Pennsylvania using the holiday edition of PennBook</p>
+		</div>
+	</div>
+	<div class = "main">
+		<div class="col-md-6 col-sm-12">
+			<div class = "login-form">
+				<form action="/checklogin" method="post">
+				<div class = "form-group">
+				<input type="text" name="username" class="form-control" placeholder="Username">
+			</div>
+    		<div class = "form-group">
+    			<input type="password" name="password" class="form-control" placeholder="Password">
+    		</div>
+    		<input type="submit" value="Login" class="button button-black">	
+    		</form>	
+  		`		<form action="/signup" method="get">
+    			<input type="submit" value="Signup" class="button button-signup">
+  				</form>
+  			</div>
+  			<%if (message != 0) { %>
+  			<p><b><font color="black"><%= message %></b></p>
+  			<% } %>
+  			<font color="black">
+  		</div>
+  	</div>	
+  
+</body>
+</html>

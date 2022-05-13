@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head><title>Chat Home</title>
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+	<script src="/socket.io/socket.io.js"></script>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		
+		var user;
+		var socket = io();
+		
+		var chats = [];
+		
+		
+		
+		function loadChats() {
+			
+			$.getJSON("/loadchats", function(elements) {
+                                $("#requests").empty();
+                                $("#chats").empty();
+				user = elements.user;
+	
+				
+				var chats = elements.chats;
+				
+				
+				
+				console.log("making chats");
+				
+				// iterating through chats and making the cards that show the chats 
+				for (let i = chats.length-1; i >= 0; i--) {
+					
+					var actualChat = chats[i];
+					console.log(actualChat);
+					var new_chat = document.createElement("li");
+					new_chat.setAttribute("class", "card");
+					
+					var new_content = document.createElement("div");
+					new_content.setAttribute("class", "card-body");
+					var new_title = document.createElement("h5");
+						
+					var k = 0;
+					while (actualChat.members.SS[k] == user) {
+						k++;
+					}
+
+					var members = "";
+					if (actualChat.members.SS.length == 1) {
+						members = actualChat.members.SS[0];
+					}
+						
+					if (k < actualChat.members.SS.length) {
+						var members = members + actualChat.members.SS[k];
+					} 
+						
+						
+						
+						
+						
+					for (let j = k+1; j < actualChat.members.SS.length; j++) {
+						if (actualChat.members.SS[j] != user) {
+							members = members + ", " + actualChat.members.SS[j];
+						}
+						
+						
+					}
+						console.log('reached');
+						new_title.innerHTML = members;
+						new_content.appendChild(new_title);
+						
+					
+						if (actualChat.isRequest.BOOL) {
+							if (actualChat.creator.S == user) {
+								continue;
+							}
+							var button_row  = document.createElement("div");
+							var accept_button_form = document.createElement("form");
+							accept_button_form.setAttribute("action", "/acceptreq?id="+actualChat.chat_id.S + "&time=" + actualChat.recent_time.S);
+							accept_button_form.setAttribute("method", "post");
+							var accept_button = document.createElement("button");
+							accept_button.setAttribute("class", "btn btn-success");
+							accept_button.setAttribute("type", "submit");
+							accept_button.setAttribute("formmethod", "post");
+							accept_button.innerHTML = "accept";
+							accept_button_form.appendChild(accept_button);
+							accept_button_form.setAttribute("style", "float:left");
+							
+							var reject_button_form = document.createElement("form");
+							reject_button_form.setAttribute("action", "/rejectreq?id="+ actualChat.chat_id.S + "&time=" + actualChat.recent_time.S);
+							reject_button_form.setAttribute("method", "post");
+							var reject_button = document.createElement("button");
+							reject_button.setAttribute("class", "btn btn-danger");
+							reject_button.setAttribute("type", "submit");
+							reject_button.setAttribute("formmethod", "post");
+							reject_button.innerHTML = "reject";
+							reject_button_form.appendChild(reject_button);
+							reject_button_form.setAttribute("style", "float:left;clear:right");
+							
+							button_row.appendChild(accept_button_form);
+							button_row.appendChild(reject_button_form);
+							
+							new_content.append(button_row);
+							new_chat.appendChild(new_content);
+							document.getElementById("requests").appendChild(new_chat);
+							
+						} else {
+							var new_button = document.createElement("a");
+							new_button.setAttribute("href", "/chat?id=" + chats[i].chat_id.S);
+							new_button.setAttribute("class", "btn btn-primary");
+							new_button.innerHTML = "open";
+					
+					
+							new_content.appendChild(new_button);
+							new_chat.appendChild(new_content);
+						
+							document.getElementById("chats").appendChild(new_chat);
+					
+						}
+					
+				
+
+					
+					
+				
+				
+				}
+				
+				
+			});
+			
+			
+			
+		
+		
+		
+		}
+		
+		//on load - includes dynamic refresh
+		$(document).ready(function() {
+			loadChats();
+			console.log("<%=message %>");
+			$('#to').val('');
+			
+			setInterval(function() {
+  	refresh();
+  	}, 30000);
+				
+		});
+		
+		//function executed when addRequest form is submitted
+		function addRequest() {
+			
+			var params = {
+				recipient: document.getElementById("to").value,
+				sender: user,
+				
+			};
+			
+			$.post("/addrequest", params);
+			
+			$('#to').val('');
+			$('#to').focus();
+		
+		}
+		
+		//dynamic refresh function
+		function refresh(){
+			loadChats();
+		}
+		
+		
+		
+		
+	</script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">pennbook</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/wallPage/<%= user %>">Wall</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/chathome">Chat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/news">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/visualizer">Visualizer</a>
+      </li>
+    </ul>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+  	
+  <form action="/logout" method="post">
+      <button type="submit" class="btn btn-primary">Logout</button>
+      </form>
+    </div>
+   </nav>
+	<div class ="container" style ="padding:3rem">
+		<div class="col-md-12">
+			<h2><center>Your Chats</center></h2>
+		<div>
+	</div>
+	<br>
+	<br>
+	<div class="container">
+		<div id="refreshPosts">
+		<div class="row"> 
+			<div class="col-md-3" style="border:1px">
+				<h4><center>Requests</center></h4>
+				
+				<ul id="requests" style="padding:10px">
+			
+				</ul>
+			</div>
+			<div class="col-md-6" style="border:1px">
+				<h4><center>Chats</center></h4>
+				<ul id="chats" style="padding:10px"s>
+				
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h4><center>New Chat Request</center></h4>
+				
+				<div class="container" style="padding:10px">
+  					<form id="form" action='#' onsubmit="addRequest(); return false">
+  						
+  						<input type="text" name="to" placeholder="your friend" id="to">
+  						<br>
+  						
+    						<button class="btn btn-primary btn-sm" type="submit" value="submit" id="submit">send</button>
+    						<br>
+    						<br>
+    						<h6><%=message %></h6>
+  						
+    						
+  					</form>
+  					<br>
+  		
+  				</div>
+  	
+				
+			
+			</div>
+		</div>
+		
+		</div>
+	</div>
+</body>
+</html>

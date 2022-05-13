@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">pennbook</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/wallPage/<%= user %>">Wall</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/chathome">Chat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/news">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/visualizer">Visualizer</a>
+      </li>
+    </ul>
+  <div class="col-sm-2">
+  	<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Search
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <input class="form-control" id="myInput" type="text" placeholder="Type to search...">
+      <% var num = 10; %>
+       <% if (users.length < 10) { %>
+       <% num = users.length; } %>
+         <% for (var i = 0; i < num; i++) { %>
+      		<li><a href="/wallPage/<%= users[i].username.S %>"><%=users[i].fullname.S %></a></li>
+       <% };%>
+    </ul>
+ 	</div> 
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+  	
+  <form action="/logout" method="post">
+      <button type="submit" class="btn btn-primary">Logout</button>
+      </form>
+    </div>
+   </nav>
+  <div class="container">
+   </br>
+  <div class="row">
+    <div class="col-4">
+     <h5>Recent Friendships</h5>
+     <div id ="refreshFriends" class="list-group" >
+      <% for (var i = friends.length - 1; i >= 0; i--) { %>
+  		<a href="/wallPage/<%= friends[i].adder.S %>" id = "fun" class="list-group-item list-group-item-action"><%=friends[i].adder.S %></a>
+ 		<% };%>
+</div>
+    </div>
+
+
+<script>
+$(document).ready(function(){
+  $('#refreshFriends').load(location.href + ' #refreshFriends');
+  setInterval(function() {
+  	$('#refreshFriends').load(location.href + ' #refreshFriends');
+  	}, 30000);
+});
+</script>
+
+
+ <script>
+$(document).ready(function(){
+  $('#refreshPosts').load(location.href + ' #refreshPosts');
+  setInterval(function() {
+  	$('#refreshPosts').load(location.href + ' #refreshPosts');
+  	}, 60000);
+});
+</script>
+
+    <div id ="refreshPosts" class="col">
+      <% var count = 0; %>
+     <% for (var i = posts.length - 1; i >= 0; i--) { %>
+     <% var arr = comment[i];%>
+     <% count++; %>
+    <div class="col">
+    <div class="card" style="width: 30rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%=  posts[i].username.S %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%=  posts[i].timeStr.S %></h6>
+    <p class="card-text"><%=  posts[i].contents.S %></p>
+   <p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href=<%="#help"+count%> role="button" aria-controls=<%="help"+count%>>
+		Comments
+  </a>
+</p>
+<div class="collapse" id=<%="help"+count%>>
+  <div class="card card-body">
+   <ul class="list-group">
+   <% for (var k = arr.length - 1; k >= 0; k--) { %>
+  <li class="list-group-item"><%= arr[k].username.S+":"+" "+arr[k].contents.S %></li>
+   <% };%>
+</ul>
+	 <a class="btn btn-primary" data-bs-toggle="collapse" href=<%="#content"+count%> role="button" aria-controls=<%="content"+count%>>
+		Add Comment
+  </a>
+</p>
+<div class="collapse" id=<%="content"+count%>>
+  <div class="card card-body">
+  <form action="/addcomment/<%= user %>/home" method="post" id ="commentID">
+  <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label"></label>
+  		<textarea class="form-control" id="exampleFormControlTextarea1" name=<%=  posts[i].id.S %> rows="3"></textarea>
+	</div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+    </div>
+    </br> 
+  </br>
+    <% };%>
+    </div>
+  </div>
+</div>
+</div>
+</nav>
+</body>
+</html>

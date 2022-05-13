@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">pennbook</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/homepage">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/wallPage/<%= currUser %>">Wall <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/chathome">Chat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/news">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/visualizer">Visualizer</a>
+      </li>
+    </ul>
+    <div class="col-sm-2">
+  	<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Search
+    <span class="caret"></span></button>
+   <ul class="dropdown-menu">
+      <input class="form-control" id="myInput" type="text" placeholder="Type to search...">
+      <% var num = 10; %>
+       <% if (users.length < 10) { %>
+       <% num = users.length; } %>
+         <% for (var i = 0; i < num; i++) { %>
+      		<li><a href="/wallPage/<%= users[i].username.S %>"><%=users[i].fullname.S %></a></li>
+       <% };%>
+    </ul>
+ 	</div> 
+</div>
+
+<script>
+$(document).ready(function(){
+  $("input").on("keyup", function() {
+    var query = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(query) > -1)
+    });
+  });
+});
+</script>
+
+      <form action="/logout" method="post">
+      <button type="submit" class="btn btn-primary">Logout</button>
+      </form>
+  </div>
+</nav>
+	<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-3">
+     	<h1><b> <%- name %> </b></h1>
+    </div>
+    <div class="col">
+    	<% if (wallUser != currUser) { %>
+    	<% if (!(isFriends.includes(wallUser))) { %>
+    	<form action="/addFriend/<%= wallUser %>" method="post">
+      <button type="submit" class="btn btn-primary">Add Friend</button>
+      </form>
+       <% } else {%> 
+         <form action="/removeFriend/<%= wallUser %>" method="post">
+      <button type="submit" class="btn btn-primary">Remove Friend</button>
+      </form>
+         <% } %> 
+      <% } %> 
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+     <h3>About Me</h3>
+    </div>
+    <div class="col-8">
+    <% if (wallUser == currUser) { %>
+    <form action="/changeInformation" method="get">
+      <button type="submit" class="btn btn-primary">Change</button>
+      </form>
+    <% }; %> 
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  
+<script>
+$(document).ready(function(){
+  $('#refreshAbout').load(location.href + ' #refreshAbout');
+  setInterval(function() {
+  	$('#refreshAbout').load(location.href + ' #refreshAbout');
+  	}, 30000);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $('#refreshAbout2').load(location.href + ' #refreshAbout2');
+  setInterval(function() {
+  	$('#refreshAbout2').load(location.href + ' #refreshAbout2');
+  	}, 30000);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $('#refreshAbout3').load(location.href + ' #refreshAbout3');
+  setInterval(function() {
+  	$('#refreshAbout3').load(location.href + ' #refreshAbout3');
+  	}, 30000);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $('#refreshAbout4').load(location.href + ' #refreshAbout4');
+  setInterval(function() {
+  	$('#refreshAbout4').load(location.href + ' #refreshAbout4');
+  	}, 30000);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $('#refreshFriends').load(location.href + ' #refreshFriends');
+  setInterval(function() {
+  	$('#refreshFriends').load(location.href + ' #refreshFriends');
+  	}, 30000);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $('#refreshPosts').load(location.href + ' #refreshPosts');
+  setInterval(function() {
+  	$('#refreshPosts').load(location.href + ' #refreshPosts');
+  	}, 60000);
+});
+</script>
+
+  
+  <div id="refreshAbout" class="row">
+    <div class="col-md-auto">
+     	Email Address: 
+    </div>
+    <div class="col-md-auto">
+      <%- email %>
+    </div>
+    <div class="col col-lg-2">
+    </div>
+  </div>
+   <div id="refreshAbout2" class="row">
+    <div class="col-md-auto">
+     	Affiliation: 
+    </div>
+    <div class="col-md-auto">
+      <%= affiliation %>
+    </div>
+    <div class="col col-lg-2">
+    </div>
+  </div>
+  <div id ="refreshAbout3" class="row">
+    <div class="col-md-auto">
+     	Birthday: 
+    </div>
+    <div class="col-md-auto">
+      <%= birth %>
+    </div>
+    <div class="col col-lg-2">
+    </div>
+  </div>
+  <div id="refreshAbout4" class="row">
+    <div class="col-md-auto">
+     	News Interests: 
+    </div>
+    <div class="col-md-auto">
+      <%= newsLikes %>
+    </div>
+    <div class="col col-lg-2">
+    </div>
+  </div>
+  </br> 
+  </br>
+  </br>
+  </br>
+  <div class="container">
+  <div id='liveAlertPlaceholder' ></div>
+	<% var online = online; %>
+  <% var friends = friends; %>
+  <script id="refreshScript">
+  let online = <%- JSON.stringify(online) %>;
+  let friends = <%- JSON.stringify(friends) %>;
+  var checking = localStorage.getItem("usersOnline");
+  var arrchecking = [];
+  var count = 0;
+  var str = "";
+  for (var k = 0; k < checking.length; k++)
+  {
+  	  if (checking[k] == ',')
+  	  {
+  	  		if (str == "false")
+  	  		{
+  	  		arrchecking.push(false);
+  	  		}
+  	  		else
+  	  		{
+  	  		arrchecking.push(true);
+  	  		}
+  	  		console.log("YAY2");
+  	  		str = "";
+  	  }
+  	  else
+  	  {
+  	  str += checking[k]
+  	  console.log(checking[k]);
+  	  }
+  }
+  if (str == "false")
+  	  		{
+  	  		arrchecking.push(false);
+  	  		}
+  	  		else
+  	  		{
+  	  		arrchecking.push(true);
+  	  		}
+  console.log(arrchecking);
+  console.log(online);
+  if (online != arrchecking)
+  {
+  	if (checking != null)
+  	{
+  	for (var j = 0; j < online.length; j++)
+  	{
+
+  		if (online[j] == true && arrchecking[j] == false)
+  		{
+  			var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+function alert(message, type) {
+  var wrapper = document.createElement('div')
+  wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+  alertPlaceholder.append(wrapper)
+}
+    alert(friends[j] +" is now Online", 'success');
+    
+  			break;
+  		}
+  	}
+  	
+  	}
+  }
+  localStorage.setItem("usersOnline", online);
+console.log(localStorage.getItem("usersOnline"));
+
+</script>
+  <div id="refreshFriends" class="row">
+    <div class="col-5">
+    	<h3><b>Friends</b></h3>
+    	<table class="table">
+  	<tbody>
+    <tr>
+      <% for (var i = 0; i < friends.length; i++) { %>
+      <tr>
+      <th><a href="/wallPage/<%=  friends[i] %>"><%=  friends[i] %></a></th>
+      <% if (online[i]) { %>
+   		<td>Online</td>
+      <% } else { %>
+      <td>Offline</td>
+      <% } %>
+      </tr>
+      <% };%>
+     </tr>
+  </tbody>
+</table>
+    </div>
+    <div class="col">
+    <% if (friends.includes(currUser) || wallUser == currUser) { %>
+    <form action="/addingpost/<%= wallUser %>" method="get">
+      <button type="submit" class="btn btn-primary">Add Post</button>
+      </form>
+       <% }; %>
+      </br>
+      <% var count = 0; %>
+     <% for (var i = posts.length - 1; i >= 0; i--) { %>
+     <% var arr = comment[i];%>
+     <% count++; %>
+    <div class="col">
+    <div class="card" style="width: 30rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%=  posts[i].username.S %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%=  posts[i].timeStr.S %></h6>
+    <p class="card-text"><%=  posts[i].contents.S %></p>
+   <p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href=<%="#help"+count%> role="button" aria-controls=<%="help"+count%>>
+		Comments
+  </a>
+</p>
+<div class="collapse" id=<%="help"+count%>>
+  <div class="card card-body">
+   <ul class="list-group">
+   <% for (var k = arr.length - 1; k >= 0; k--) { %>
+  <li class="list-group-item"><%= arr[k].username.S+":"+" "+arr[k].contents.S %></li>
+   <% };%>
+</ul>
+	 <a class="btn btn-primary" data-bs-toggle="collapse" href=<%="#content"+count%> role="button" aria-controls=<%="content"+count%>>
+		Add Comment
+  </a>
+</p>
+<div class="collapse" id=<%="content"+count%>>
+  <div class="card card-body">
+  <form action="/addcomment/<%= wallUser %>/wall" method="post" id ="commentID">
+  <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label"></label>
+  		<textarea class="form-control" id="exampleFormControlTextarea1" name=<%=  posts[i].id.S %> rows="3"></textarea>
+	</div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+    </div>
+    </br> 
+  </br>
+    <% };%>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

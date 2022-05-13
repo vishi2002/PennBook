@@ -1,0 +1,49 @@
+Full name:  Aryan Singh, Aditya Maddipatla, Vishesh Patel, Vibha Makam
+SEAS login: aryansng, amadd, visheshp, vmakam
+
+Which features did you implement?
+  (list features, or write 'Entire assignment')
+	Entire assignment
+  
+Did you complete any extra-credit tasks? If so, which ones?
+  (list extra-credit tasks)
+	We added dynamic refresh to pages beyond the home page.
+
+List of source files included:
+  database.js, routes.js, app.js, NewsGraphUpdater.java, NewsGraphJob.java, Labels.java,Type.java, and rest of views folder
+
+Instructions for running project:
+  Download the code locally, and following that run mvn compile, mvn package,
+  and then npm install. Then, following that you can run the project using
+  node app.js and go to port 80 locally, where the application should be running.
+  
+  Update Apache Livy Client URL in NewsGraphUpdater, find on EMR interface.
+
+Feature Descriptions:
+- Login page - allows users to login
+- Signup page - users can create new accounts
+- Homepage - shows recent friendships, your posts, your friends' posts, posts made on your wall, posts made on your friends' walls
+- Wall page - can see your personal information (and change them), your posts, posts your friends made on your wall, your friends and if they are online or not
+	- when viewing other people's pages if (1) they are your friend, then a button to remove them as a friend or (2) they aren't your friend, then a button to add them as a friend
+- Search Bar - can search users with autocomplete in the dropdown
+- Dynamic refresh: wall page, home page, chat
+- Chat Homepage - can view chats and chat requests; can open chats and accept/reject chat requests; can send chat requests
+- Chat - can add users or leave a chat; when adding a user to a private chat, a new group chat is made; can send and receive messages dynamically
+- Visualizer - can see your friends and their friends who have the same affiliation
+- News feed - shows articles that align with your interests, generates a new article for you every hour; when news interests are changed, a new article given to you at the top of your feed
+- Articles Search Bar - can search for articles ordered by number of search terms matched and weight in the graph
+ 
+
+
+Did you personally write _all_ the code you are submitting
+(other than code from the course web page)?
+  [X] Yes
+  [ ] No
+
+Did you copy any code from the Internet, or from classmates?
+  [ ] Yes
+  [X] No
+
+Did you collaborate with anyone on this assignment?
+  [ ] Yes
+  [X] No

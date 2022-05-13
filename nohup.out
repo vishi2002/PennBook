@@ -1,0 +1,134 @@
+Wed, 22 Dec 2021 04:06:59 GMT body-parser deprecated undefined extended: provide extended option at app.js:45:17
+Wed, 22 Dec 2021 04:06:59 GMT express-session deprecated undefined resave option; provide resave option at app.js:77:9
+Wed, 22 Dec 2021 04:06:59 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:77:9
+HTTP server started on port 8080
+node:events:368
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::80
+    at Server.setupListenHandle [as _listen2] (node:net:1330:16)
+    at listenInCluster (node:net:1378:12)
+    at Server.listen (node:net:1465:7)
+    at Object.<anonymous> (/home/ec2-user/PennBook/app.js:127:6)
+    at Module._compile (node:internal/modules/cjs/loader:1097:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1149:10)
+    at Module.load (node:internal/modules/cjs/loader:975:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:17:47
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1357:8)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 80
+}
+
+Node.js v17.3.0
+Wed, 22 Dec 2021 05:03:10 GMT body-parser deprecated undefined extended: provide extended option at app.js:45:17
+Wed, 22 Dec 2021 05:03:10 GMT express-session deprecated undefined resave option; provide resave option at app.js:77:9
+Wed, 22 Dec 2021 05:03:10 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:77:9
+HTTP server started on port 8080
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:21 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:35 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:38 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:03:38 +0000] "GET / HTTP/1.1" 200 2718 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:03:38 +0000] "GET / HTTP/1.1" 200 2718 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:03:43 +0000] "POST /checklogin HTTP/1.1" 302 62 "http://ec2-34-230-42-227.compute-1.amazonaws.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:03:43 +0000] "GET /homepage HTTP/1.1" 200 32174 "http://ec2-34-230-42-227.compute-1.amazonaws.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:03:44 +0000] "GET /homepage HTTP/1.1" 200 32174 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:03:44 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:45 +0000] "POST /checklogin HTTP/1.1" 302 62 "http://ec2-34-230-42-227.compute-1.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:46 +0000] "GET /homepage HTTP/1.1" 200 58304 "http://ec2-34-230-42-227.compute-1.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:46 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:47 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:48 +0000] "GET /wallPage/aryan13 HTTP/1.1" 200 33983 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:48 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:49 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:49 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:49 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:49 +0000] "GET /changeInformation? HTTP/1.1" 200 4764 "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:50 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+cd /home/ec2-user/PennBook/NewsReccomender;mvn exec:java -Dexec.mainClass="edu.upenn.cis.nets212.NewsRecomender.livy.NewsGraphUpdater" -Dexec.args="2 aryan13"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:54 +0000] "POST /changeNewsInterest HTTP/1.1" 200 4705 "http://ec2-34-230-42-227.compute-1.amazonaws.com/changeInformation?" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:56 +0000] "GET /wallPage/aryan13? HTTP/1.1" 200 35103 "http://ec2-34-230-42-227.compute-1.amazonaws.com/changeNewsInterest" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:57 +0000] "GET /wallPage/aryan13? HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13?" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:58 +0000] "GET /wallPage/aryan13? HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13?" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:03:59 +0000] "GET /wallPage/aryan13? HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13?" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:00 +0000] "GET /wallPage/aryan13? HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13?" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:00 +0000] "GET /wallPage/aryan13? HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13?" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:07 +0000] "GET /homepage HTTP/1.1" 200 59487 "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13?" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:07 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:08 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:09 +0000] "GET /wallPage/aryan13 HTTP/1.1" 200 35103 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:09 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:09 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:09 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:10 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:10 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:12 +0000] "GET /news HTTP/1.1" 200 37969 "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:04:14 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+error:Command failed: cd /home/ec2-user/PennBook/NewsReccomender;mvn exec:java -Dexec.mainClass="edu.upenn.cis.nets212.NewsRecomender.livy.NewsGraphUpdater" -Dexec.args="2 aryan13"
+
+::ffff:165.123.227.122 - - [22/Dec/2021:05:04:44 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:04:44 +0000] "GET /homepage HTTP/1.1" 200 32174 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:04:46 +0000] "GET /news HTTP/1.1" 200 38713 "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:05:05 +0000] "POST /logout HTTP/1.1" 302 46 "http://ec2-34-230-42-227.compute-1.amazonaws.com/news" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:05:05 +0000] "GET / HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/news" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:05:14 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:05:44 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:05:44 +0000] "GET /homepage HTTP/1.1" 200 32174 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:06:14 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:06:44 +0000] "GET /homepage HTTP/1.1" 200 32174 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:06:44 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:07:14 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:07:44 +0000] "GET /homepage HTTP/1.1" 200 32174 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:07:44 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:08:14 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:08:33 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:08:44 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:08:44 +0000] "GET /homepage HTTP/1.1" 200 32174 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:09:14 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:09:44 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:09:44 +0000] "GET /homepage HTTP/1.1" 200 32174 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:10:14 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:10:24 +0000] "GET /%20http://ec2-34-230-42-227.compute-1.amazonaws.com/ HTTP/1.1" 404 191 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:10:41 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:10:44 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:10:44 +0000] "GET /homepage HTTP/1.1" 200 32174 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:10:47 +0000] "GET / HTTP/1.1" 200 2718 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15"
+::ffff:165.123.227.20 - - [22/Dec/2021:05:10:47 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://ec2-34-230-42-227.compute-1.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:10 +0000] "GET / HTTP/1.1" 200 2718 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:11 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://ec2-34-230-42-227.compute-1.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.227.122 - - [22/Dec/2021:05:11:14 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:28 +0000] "POST /checklogin HTTP/1.1" 302 62 "http://ec2-34-230-42-227.compute-1.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:29 +0000] "GET /homepage HTTP/1.1" 200 59487 "http://ec2-34-230-42-227.compute-1.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:30 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:30 +0000] "GET /homepage HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:31 +0000] "GET /wallPage/aryan13 HTTP/1.1" 200 35103 "http://ec2-34-230-42-227.compute-1.amazonaws.com/homepage" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:32 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:32 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:33 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:33 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:33 +0000] "GET /wallPage/aryan13 HTTP/1.1" 304 - "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:34 +0000] "GET /chathome HTTP/1.1" 200 8473 "http://ec2-34-230-42-227.compute-1.amazonaws.com/wallPage/aryan13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+XXX
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:35 +0000] "GET /loadchats HTTP/1.1" 200 1008 "http://ec2-34-230-42-227.compute-1.amazonaws.com/chathome" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:37 +0000] "GET /news HTTP/1.1" 200 38713 "http://ec2-34-230-42-227.compute-1.amazonaws.com/chathome" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:38 +0000] "GET /visualizer HTTP/1.1" 200 4175 "http://ec2-34-230-42-227.compute-1.amazonaws.com/news" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:38 +0000] "GET /css/base.css HTTP/1.1" 200 1681 "http://ec2-34-230-42-227.compute-1.amazonaws.com/visualizer" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:38 +0000] "GET /js/friendvisualizer.js HTTP/1.1" 200 2376 "http://ec2-34-230-42-227.compute-1.amazonaws.com/visualizer" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+::ffff:165.123.226.13 - - [22/Dec/2021:05:11:39 +0000] "GET /js/jit.js HTTP/1.1" 200 490615 "http://ec2-34-230-42-227.compute-1.amazonaws.com/visualizer" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+/home/ec2-user/PennBook/routes/routes.js:562
+					var json = {"id": friend.username.S, "name": friend.fullname.S, "data":{}, "children" : [] };
+					                         ^
+
+TypeError: Cannot read properties of undefined (reading 'username')
+    at /home/ec2-user/PennBook/routes/routes.js:562:31
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+Node.js v17.3.0
