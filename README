@@ -32,17 +32,3 @@ Feature Descriptions:
 - News feed - shows articles that align with your interests, generates a new article for you every hour; when news interests are changed, a new article given to you at the top of your feed
 - Articles Search Bar - can search for articles ordered by number of search terms matched and weight in the graph
  
-
-
-Did you personally write _all_ the code you are submitting
-(other than code from the course web page)?
-  [X] Yes
-  [ ] No
-
-Did you copy any code from the Internet, or from classmates?
-  [ ] Yes
-  [X] No
-
-Did you collaborate with anyone on this assignment?
-  [ ] Yes
-  [X] No
